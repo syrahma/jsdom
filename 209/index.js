@@ -1,25 +1,12 @@
-const group= document.querySelector(".group");
-const output= document.querySelector(".output");
-const sizes=["XS","S","M","L","XL","XXL"];
-group.innerHTML=sizes.map((size)=>
-    `<div>
-    <input type="radio" id="${size}" value="${size}" name="size">
-     <label for="${size}">${size}</label>  
-    </div>`      
+ const btn= document.querySelector("#btn");
+ 
+ btn.addEventListener("click",(e)=>{
+  let checkBoxs= document.querySelectorAll("input[name='color']:checked");
+  let values=[];
+  checkBoxs.forEach((checkBox)=>{
+   values.push(checkBox.value)
+  })
+ 
+ alert(values);
 
-).join(" ");
-
-const radioButton= document.querySelectorAll("input");
-
-for(const radioBtn of radioButton){
-       radioBtn.addEventListener("change",showOutput) ;  
-
-}
-
-function showOutput(e){
-  console.log(e);
-  if(this.checked){
-          output.innerHTML=`You Selected ${this.value}`;
-  }        
-
-}
+ })
